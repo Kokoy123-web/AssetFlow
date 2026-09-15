@@ -180,8 +180,8 @@ flowchart TD
 ## 7. Audit-Log Screenshot
 
 
+<img width="1352" height="676" alt="image" src="https://github.com/user-attachments/assets/5ae908ea-0f3a-493c-ad3e-1d60802597d0" />
 
-<img width="484" height="484" alt="Screenshot 2026-09-15 102914" src="https://github.com/user-attachments/assets/ccc1e357-3794-482f-8ecb-727ee8f229e1" />
 
 
 
