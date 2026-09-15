@@ -179,13 +179,11 @@ flowchart TD
 
 ## 7. Audit-Log Screenshot
 
-You can download the audit log image here:
 
-[Download Audit Log Screenshot](assets/audit-log-screenshot.svg)
 
-![Audit Log Screenshot](assets/audit-log-screenshot.svg)
+<img width="484" height="484" alt="Screenshot 2026-09-15 102914" src="https://github.com/user-attachments/assets/ccc1e357-3794-482f-8ecb-727ee8f229e1" />
 
-> The image is stored in the repository as an SVG file so it can be opened or downloaded directly.
+
 
 ---
 
