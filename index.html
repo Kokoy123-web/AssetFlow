@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAB4 • AssetFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <div class="noise"></div>
+    <div id="toast" class="toast"></div>
+    <div id="equipmentModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="equipmentModalTitle">
+      <div class="modal-card">
+        <div class="modal-head">
+          <div>
+            <span class="eyebrow">EQUIPMENT INVENTORY</span>
+            <h3 id="equipmentModalTitle">Add equipment</h3>
+          </div>
+          <button type="button" class="modal-close" id="closeEquipmentModal" aria-label="Close">&times;</button>
+        </div>
+        <form id="equipmentForm" class="form-grid">
+          <label>Name<input id="equipmentName" required placeholder="Dell Latitude 5420" /></label>
+          <label>Asset code<input id="equipmentCode" required placeholder="LAP-001" /></label>
+          <label>Category<input id="equipmentCategory" placeholder="Laptop" /></label>
+          <label>Location<input id="equipmentLocation" placeholder="Lab 1" /></label>
+          <div class="wide modal-actions">
+            <button type="button" class="ghost modal-cancel" id="cancelEquipmentModal">Cancel</button>
+            <button type="submit" class="primary">Add equipment</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <section id="authView" class="auth-shell">
+      <div class="auth-art">
+        <span class="sticker sticker-a">ROLE<br />BASED</span>
+        <span class="sticker sticker-b">AUDIT<br />READY</span>
+        <div class="hero-mark">A<span>F</span></div>
+       
+        <h1>Asset transactions,<br /><em>under control.</em></h1>
+        <p class="hero-copy">
+          A role-aware laboratory asset management interface with approvals,
+          business rules, and an audit trail.
+        </p>
+        <div class="rule-pills">
+          <span>ADMIN</span><span>STAFF</span><span>REQUESTER</span>
+        </div>
+      </div>
+      <div class="auth-card">
+        <div class="brandline">
+          <div class="logo">AF</div>
+          <div><b>AssetFlow</b><small>Laboratory Control Center</small></div>
+        </div>
+        <div class="auth-tabs">
+          <button class="active" data-auth="login">Sign in</button
+          ><button data-auth="signup">Create account</button>
+        </div>
+        <form id="authForm">
+          <label
+            >Email<input
+              id="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+          /></label>
+          <label
+            >Password<input
+              id="password"
+              type="password"
+              placeholder="••••••••"
+              minlength="6"
+              required
+          /></label>
+          <label id="nameWrap" class="hidden"
+            >Full name<input
+              id="fullName"
+              type="text"
+              placeholder="Juan Dela Cruz"
+          /></label>
+          <button class="primary big" type="submit" id="authSubmit">
+            Enter workspace ↗
+          </button>
+        </form>
+        <p class="muted">
+          New accounts are created as <b>Requester / Viewer</b>. An
+          Administrator can change roles from the Users panel.
+        </p>
+        <div class="demo-note">
+          <b>First setup:</b> run <code>supabase.sql</code>, then create your
+          first account. Promote it to <code>admin</code> in Supabase Table
+          Editor.
+        </div>
+      </div>
+    </section>
+
+    <section id="appView" class="app-shell hidden">
+      <aside class="sidebar">
+        <div class="brandline">
+          <div class="logo">AF</div>
+          <div><b>AssetFlow</b><small>Lab Control</small></div>
+        </div>
+        <div class="role-badge" id="roleBadge">REQUESTER</div>
+        <nav id="nav"></nav>
+        <div class="sidebar-bottom">
+          <div class="mini-user">
+            <div class="avatar" id="avatar">U</div>
+            <div><b id="userName">User</b><small id="userEmail"></small></div>
+          </div>
+          <button id="logoutBtn" class="ghost full">Log out</button>
+        </div>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <span class="eyebrow" id="pageKicker">WORKSPACE</span>
+            <h2 id="pageTitle">Dashboard</h2>
+          </div>
+          <div class="top-actions">
+            <span class="live-dot">● LIVE</span
+            ><button class="icon-btn" id="refreshBtn">↻</button>
+          </div>
+        </header>
+        <div id="content"></div>
+      </main>
+    </section>
+    <script type="module" src="src/core/app.js"></script>
+  </body>
+</html>
